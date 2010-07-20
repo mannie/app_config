@@ -1,1 +1,1 @@
-# Install hook code here
+Rake::Task['app_config:init'].invoke
