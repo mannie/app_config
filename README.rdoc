@@ -46,14 +46,13 @@ _code_
 
 === Using in a Rails app
 
-You just need to create an initializer that looks something like this.
+By default, installing via `script/plugin install`/`rails plugin install` will create an initializer file containing the following content:
 
- require 'app_config'
- ::AppConfig = ApplicationConfiguration.new(RAILS_ROOT+"/config/app_config.yml",
-                                            RAILS_ROOT+"/config/environments/#{RAILS_ENV}.yml")
-
-If you installed this as a Rails plugin instead of a gem, that code is already run for you in
-the plugin's init.rb.
+_code_
+  require 'app_config'
+  
+  ::AppConfig = ApplicationConfiguration.new("#{Rails.root}/config/app_config.yml",
+                                             "#{Rails.root}/config/environments/#{Rails.env}.yml")
 
 === Environments
 
