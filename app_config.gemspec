@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{app_config}
-  s.version = "1.3.0"
+  s.version = "1.3.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Christopher J Bottaro"]
@@ -27,7 +27,6 @@ Gem::Specification.new do |s|
      "lib/tasks/app_config.rake",
      "lib/tasks/initializer/app_config.rb",
      "lib/tasks/rake_helper.rb",
-     "tasks/app_config_tasks.rake",
      "test/app_config.yml",
      "test/app_config_test.rb",
      "test/closed_struct_test.rb",
