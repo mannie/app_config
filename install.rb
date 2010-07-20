@@ -1,1 +1,1 @@
-Rake::Task['app_config:init'].invoke
+`rake app_config:init`
