@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{app_config}
-  s.version = "1.3.1"
+  s.version = "1.3.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Christopher J Bottaro"]
-  s.date = %q{2010-07-20}
+  s.date = %q{2010-07-21}
   s.description = %q{Application level configuration that supports YAML config file, inheritance, ERB, and object member notation.}
   s.email = %q{cjbottaro@alumni.cs.utexas.edu}
   s.extra_rdoc_files = [
