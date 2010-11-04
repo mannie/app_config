@@ -1,5 +1,5 @@
 == Summary
-Application level configuration.
+Application level configuration. If you are using Rails 3, please use RailsConfig (https://github.com/railsjedi/rails_config) instead.
 
 == Features
 
