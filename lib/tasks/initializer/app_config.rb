@@ -1,4 +1,10 @@
 require 'app_config'
 
-::AppConfig = ApplicationConfiguration.new("#{Rails.root}/config/app_config.yml",
-                                           "#{Rails.root}/config/environments/#{Rails.env}.yml")
+ApplicationConfiguration.setup do |conf|
+  conf.config_name = "Settings"
+
+  conf.add_file("#{Rails.root}/config/app_config.yml")
+  conf.add_file("#{Rails.root}/config/environments/#{Rails.env}.yml")
+
+#  conf.add_file("#{Rails.root}/config/...")
+end

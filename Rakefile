@@ -5,12 +5,12 @@ require 'rake/rdoctask'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "app_config"
+    gem.name = "app_config_mt"
     gem.summary = %Q{Application level configuration.}
     gem.description = %Q{Application level configuration that supports YAML config file, inheritance, ERB, and object member notation.}
     gem.email = "cjbottaro@alumni.cs.utexas.edu"
-    gem.homepage = "http://github.com/cjbottaro/app_config"
-    gem.authors = ["Christopher J Bottaro"]
+    gem.homepage = "http://github.com/myGrid/app_config"
+    gem.authors = ["Christopher J Bottaro", "Mannie Tagarira"]
 
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end

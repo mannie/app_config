@@ -1,5 +1,12 @@
+= AppConfig
+
+Authors:: Christopher J. Bottaro, modified by Mannie Tagarira
+
+
 == Summary
-Application level configuration. If you are using Rails 3, please use RailsConfig (https://github.com/railsjedi/rails_config) instead.
+Application level configuration. 
+
+If you are using Rails 3, please use RailsConfig (https://github.com/railsjedi/rails_config) instead.
 
 == Features
 
@@ -22,11 +29,17 @@ You simply write a configuration file in YAML.  Notice you can use ERB.
 Then somewhere in your code, you create a global constant from the config file.  Then access the config data via object member notation.
 
 _code_
-  ::AppConfig = ApplicationConfiguration.new("config.yml")
-  AppConfig.aws.access_key  # => "123ABC"
-  AppConfig.aws.secret_key  # => "ABC123"
-  AppConfig.now             # => Tue May 05 21:55:15 -0500 2009
-  AppConfig.servers[0].name # => "example1.com"
+  ApplicationConfiguration.setup { |c|
+    c.config_name = "MySettings"
+    c.add_file("config.yml")
+  }
+
+  MySettings.aws.access_key  # => "123ABC"
+  MySettings.aws.secret_key  # => "ABC123"
+  MySettings.now             # => Tue May 05 21:55:15 -0500 2009
+  MySettings.servers[0].name # => "example1.com"
+
+  MySetting.reload! # use this anytime to reload/refresh your config object
 
 === Inheritance
 
@@ -40,9 +53,15 @@ You can have a second config file that is recursively merged with the first conf
   domain:  www.mycoolapp.com
 
 _code_
-  ::AppConfig = ApplicationConfiguration.new("base.yml", "production.yml")
-  AppConfig.app_name # => "MyCoolApp"
-  AppConfig.domain   # => "www.mycoolapp.com"
+  ApplicationConfiguration.setup { |c|
+    c.config_name = "MyAppConfig"
+
+    c.add_file("base.yml")
+    c.add_file("production.yml")
+  }
+
+  MyAppConfig.app_name # => "MyCoolApp"
+  MyAppConfig.domain   # => "www.mycoolapp.com"
 
 === Using in a Rails app
 
@@ -50,39 +69,15 @@ By default, installing via `script/plugin install`/`rails plugin install` will c
 
 _code_
   require 'app_config'
-  
-  ::AppConfig = ApplicationConfiguration.new("#{Rails.root}/config/app_config.yml",
-                                             "#{Rails.root}/config/environments/#{Rails.env}.yml")
 
-=== Environments
+  ApplicationConfiguration.setup do |conf|
+    conf.config_name = "Settings"
 
-Alternatively to splitting out your environments into separate files, you can just have a single file which defines
-the application configuration for all environments (much like how databases.yml works).  Note if you do this, nested
-configurations will not be recursively merged.  See example below.
+    conf.add_file("#{Rails.root}/config/app_config.yml")
+    conf.add_file("#{Rails.root}/config/environments/#{Rails.env}.yml")
 
-<em>app_config.yml</em>
-  defaults: &defaults
-    one: won
-    two: too
-    nested:
-      foo: foo
-      bar: bar
-  
-  development:
-    <<: *defaults
-    two: new
-    nested:
-      foo: bar
-
-_code_
-  RAILS_ENV # => "development"
-  ::AppConfig = ApplicationConfiguration.new("app_config.yml")
-  AppConfig.use_environment!(RAILS_ENV)
-  AppConfig.one # => "won"
-  AppConfig.two # => "new"
-  AppConfig.nested.foo # => "bar"
-  AppConfig.nested.bar # raises NoMethodError because nested configurations are not recursively merged
+    # conf.add_file("#{Rails.root}/config/custom.yml")
+end
 
 
-== Author
-Christopher J. Bottaro
+

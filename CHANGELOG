@@ -1,14 +1,18 @@
-10/03/2008
-* recursively merge the configuration hashes
+10 Jun 2011
+* Refactored ApplicationConfiguration to maintain the config as a singleton.
+* Updated some tests to work with this new model.
 
-07/01/2009
+28 Aug 2009
+* Added support for "environments" in the YAML files.
+
+27 Aug 2009
+* Updated the ClosedStruct class.
+
+01 Jul 2009
 * Packaged as a gem (but still works as a Rails plugin).
 * The app config object is now an instance of ApplicationConfiguration.
 * NoMethodError raised if you try to access a config element that doesn't exist.
 * ApplicationConfiguration#reload! to reread the config files and rebuild the app config object.
 
-08/27/2009
-* Updated the ClosedStruct class.
-
-08/28/2009
-* Added support for "environments" in the YAML files.
+03 Aug 2008
+* recursively merge the configuration hashes

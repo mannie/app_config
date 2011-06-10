@@ -45,6 +45,18 @@ class ClosedStruct < OpenStruct
     @table.dup
   end
   
+  def reload!
+    ApplicationConfiguration.reload!
+  end
+  
+  def use_environment!(environment, options = {})
+    ApplicationConfiguration.use_environment!(environment, options)
+  end
+  
+  def add_file(file_path)
+    ApplicationConfiguration.add_file(file_path)
+  end
+  
 private
   
   def recursive_initialize
