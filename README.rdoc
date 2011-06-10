@@ -78,7 +78,7 @@ _code_
     conf.add_file("#{Rails.root}/config/environments/#{Rails.env}.yml")
 
     # conf.add_file("#{Rails.root}/config/custom.yml")
-end
+  end
 
 
 
