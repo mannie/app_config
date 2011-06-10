@@ -1,1 +1,0 @@
-`rake app_config:init`

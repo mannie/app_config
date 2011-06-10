@@ -8,9 +8,9 @@ begin
     gem.name = "app_config_mt"
     gem.summary = %Q{Application level configuration.}
     gem.description = %Q{Application level configuration that supports YAML config file, inheritance, ERB, and object member notation.}
-    gem.email = "cjbottaro@alumni.cs.utexas.edu"
+    gem.email = "mannie@mygrid.org.uk"
     gem.homepage = "http://github.com/myGrid/app_config"
-    gem.authors = ["Christopher J Bottaro", "Mannie Tagarira"]
+    gem.authors = ["Mannie Tagarira"]
 
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
@@ -28,11 +28,3 @@ Rake::TestTask.new(:test) do |t|
   t.verbose = true
 end
 
-desc 'Generate documentation for the app_config plugin.'
-Rake::RDocTask.new(:rdoc) do |rdoc|
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = 'AppConfig'
-  rdoc.options << '--line-numbers' << '--inline-source'
-  rdoc.rdoc_files.include('README.rdoc')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-end

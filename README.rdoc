@@ -1,11 +1,11 @@
 = AppConfig
 
-Authors:: Christopher J. Bottaro, modified by Mannie Tagarira
+Authors:: Mannie Tagarira (modified from AppConfig by Christopher J. Bottaro)
 Version:: 2.0.0
 Contact:: mannie@mygrid.org.uk
 
 == Summary
-Application level configuration. 
+Application level configuration for Rails 2 and Ruby apps.
 
 If you are using Rails 3, please use RailsConfig (https://github.com/railsjedi/rails_config) instead.
 
