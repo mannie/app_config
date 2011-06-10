@@ -1,7 +1,8 @@
 = AppConfig
 
 Authors:: Christopher J. Bottaro, modified by Mannie Tagarira
-
+Version:: 2.0.0
+Contact:: mannie@mygrid.org.uk
 
 == Summary
 Application level configuration. 
