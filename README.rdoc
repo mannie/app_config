@@ -11,10 +11,10 @@ If you are using Rails 3, please use RailsConfig (https://github.com/railsjedi/r
 
 == Features
 
- * simple YAML config files
- * config files support ERB
- * config files support inheritance
- * access config information via convenient object member notation
+* simple YAML config files
+* config files support ERB
+* config files support inheritance
+* access config information via convenient object member notation
 
 === Basic Usage
 
